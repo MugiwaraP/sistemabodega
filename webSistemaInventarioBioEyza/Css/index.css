@@ -1,0 +1,40 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+.submit-button {
+    width: 100%;
+    padding: 8px;
+    background-color: #50d716;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 15px;
+    margin-top: 15px
+}
+
+    .submit-button:hover {
+        background-color: #27650c;
+    }
+
+.button-cerrar-sesion {
+    width: 100%;
+    padding: 8px;
+    background-color: #50d716;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+    margin-top:15px
+}
+
+
+    .button-cerrar-sesion:hover {
+        background-color: #27650c;
+    }

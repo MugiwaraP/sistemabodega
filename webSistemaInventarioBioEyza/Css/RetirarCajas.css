@@ -1,0 +1,99 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+h2 {
+    text-align: center;
+    color: #007bff;
+}
+
+.label {
+
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+    .labelk {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+.textbox {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+    .textbox:focus {
+        border-color: #50d716;
+        outline: none;
+    }
+
+.button {
+    background-color: #50d716;
+    color: #ffffff;
+    border: none;
+    padding: 17px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .button:hover {
+        background-color: #27650c;
+    }
+
+.calendar {
+    width: 80%;
+    margin-top: 10px;
+    margin: auto;
+}
+
+/* Estilos para la fila en edición */
+.gridview-edit-row {
+    background-color: #f0f8ff; /* Color de fondo para resaltar la fila en edición */
+}
+
+/* Estilos para la fila que se va a eliminar */
+.gridview-delete-row {
+    background-color: #f8d7da; /* Color de fondo para resaltar la fila que se va a eliminar */
+}
+
+.submit-button {
+    padding: 12px;
+    background-color: #50d716;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .submit-button:hover {
+        background-color: #27650c;
+    }
+
+li:hover {
+    background-color: #27650c;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
