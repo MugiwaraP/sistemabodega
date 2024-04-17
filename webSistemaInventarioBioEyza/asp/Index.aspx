@@ -30,7 +30,7 @@
    <link rel="stylesheet" href="../Css/owl.theme.default.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
-    
+    <!-- mensaje nuevo -->
     <style>
     /* Estilos adicionales */
     .navbar {
