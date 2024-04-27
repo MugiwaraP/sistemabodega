@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using System.Security.Claims;
 using System.Web.Security;
 using System.Configuration;
+using webSistemaInventarioBioEyza.Clases;
 
 namespace webSistemaInventarioBioEyza.Html
 {
@@ -51,8 +52,8 @@ namespace webSistemaInventarioBioEyza.Html
                 {
                     try
                     {
-                        string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
-                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
+                        using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
                         {
                             connection.Open();
 

@@ -105,6 +105,24 @@ namespace webSistemaInventarioBioEyza.Html
         protected global::System.Web.UI.WebControls.TextBox txtCodigoFactura;
 
         /// <summary>
+        /// Control lblEtiquetaCaja.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEtiquetaCaja;
+
+        /// <summary>
+        /// Control txtEtiquetaCaja.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEtiquetaCaja;
+
+        /// <summary>
         /// Control lblComentario.
         /// </summary>
         /// <remarks>

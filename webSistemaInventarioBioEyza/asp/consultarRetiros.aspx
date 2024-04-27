@@ -172,6 +172,7 @@
         <div class="container">
 
             <h2 style="text-align: center;">Consultar retiro de cajas</h2>
+            <label for="txtBuscarCaja">Buscar caja por nombre o etiqueta: </label>
             <asp:TextBox ID="txtBuscarCaja" runat="server" CssClass="textbox" ClientIDMode="Static" placeholder="Buscar caja específica..." AutoPostBack="true" OnTextChanged="txtBuscarCaja_TextChanged"></asp:TextBox>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
                 <Columns>
@@ -184,6 +185,7 @@
                     <asp:BoundField DataField="cantidadRetirada" HeaderText="Cantidad Retirada" />
                     <asp:BoundField DataField="destinatario" HeaderText="Destinatario" />
                     <asp:BoundField DataField="codigoFactura" HeaderText="Código de Factura" />
+                    <asp:BoundField DataField="etiquetaCaja" HeaderText="Etiqueta caja" />
                     <asp:BoundField DataField="comentario" HeaderText="Comentario (Opcional)" />
                     <asp:BoundField DataField="usuario_retirada" HeaderText="Usuario de Retiro" />
                     <asp:BoundField DataField="tipo_inventario" HeaderText="Tipo de Inventario" />
@@ -203,5 +205,8 @@
             </div>
         </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

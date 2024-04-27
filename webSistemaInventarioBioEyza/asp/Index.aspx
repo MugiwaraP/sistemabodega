@@ -30,7 +30,6 @@
    <link rel="stylesheet" href="../Css/owl.theme.default.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
-    <!-- mensaje nuevo -->
     <style>
     /* Estilos adicionales */
     .navbar {
@@ -62,7 +61,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="logo">
                 <a href="index.aspx">
-                    <img src="../img/icon_BIO-removebg-preview.png" /></a>
+                 <img src="../img/icon_BIO-removebg-preview.png" /></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,26 +69,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="registroCaja.aspx" style="font-size: 16px;">Agregar Caja</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="editarCaja.aspx" style="font-size: 16px;">Editar caja</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="mostrarInventario.aspx" style="font-size: 16px;">Mostrar Inventario</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="retirarCajas.aspx" style="font-size: 16px;">Retirar Cajas</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="consultarRetiros.aspx" style="font-size: 16px;">Consultar Cajas</a>
                     </li>
                     
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <asp:Button ID="RegistrarEmpleadosLink" runat="server" Text="Agregar empleado" CssClass="submit-button" OnClick="RegistrarEmpleadosLink_Click" />
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión" OnClick="btnCerrarSesión_Click" CssClass="button-cerrar-sesion" />
                     </li>
                 </ul>
@@ -190,16 +189,8 @@
         </div>
     </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript -->
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using webSistemaInventarioBioEyza.Clases;
 
 namespace webSistemaInventarioBioEyza.Html
 {
@@ -23,10 +24,10 @@ namespace webSistemaInventarioBioEyza.Html
             string confirmarContraseña=txtConfirmPass.Text;
 
 
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
 
                 connection.Open();

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using webSistemaInventarioBioEyza.Clases;
 
 namespace webSistemaInventarioBioEyza.asp
 {
@@ -21,10 +22,10 @@ namespace webSistemaInventarioBioEyza.asp
         public void mostrarSalidas() 
         {
             string tipoInventarioSeleccionado = tipoInventario.SelectedValue;
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
             // Crear una conexión a la base de datos MySQL
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 // Abrir la conexión
                 connection.Open();
@@ -102,10 +103,10 @@ namespace webSistemaInventarioBioEyza.asp
             string codigoFactura = txtCodigoFactura.Text;
 
             // Obtener la cadena de conexión desde el archivo Web.config
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
             // Crear una conexión a la base de datos MySQL
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 // Abrir la conexión
                 connection.Open();
@@ -147,10 +148,9 @@ namespace webSistemaInventarioBioEyza.asp
             DateTime fechaInicio = DateTime.ParseExact(txtFechaInicio.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime fechFinal = DateTime.ParseExact(txtFechaFinal.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             // Obtener la cadena de conexión desde el archivo Web.config
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
-
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
             // Crear una conexión a la base de datos MySQL
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 // Abrir la conexión
                 connection.Open();
@@ -218,8 +218,8 @@ namespace webSistemaInventarioBioEyza.asp
         protected void BuscarCajaEspecifica(string tipoInventarioItem, string nombreCajaItem)
         {
             // Establece la conexión a la base de datos
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 // Abre la conexión
                 connection.Open();

@@ -9,6 +9,7 @@ using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using webSistemaInventarioBioEyza.Clases;
 
 namespace webSistemaInventarioBioEyza.Html
 {
@@ -27,7 +28,9 @@ namespace webSistemaInventarioBioEyza.Html
             if (string.IsNullOrEmpty(txtNombreCaja.Text) ||
                 string.IsNullOrEmpty(txtCantidadRetirar.Text) ||
                 string.IsNullOrEmpty(txtCodigoFactura.Text) ||
-                string.IsNullOrEmpty(txtDestinatario.Text))
+                string.IsNullOrEmpty(txtDestinatario.Text) ||
+                string.IsNullOrEmpty(txtEtiquetaCaja.Text))
+
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Algun campo esta vacío');", true);
                 return; // Salir del método si hay campos vacíos
@@ -45,12 +48,13 @@ namespace webSistemaInventarioBioEyza.Html
             string nombreCaja = txtNombreCaja.Text;
             string destinatario = txtDestinatario.Text;
             string comentario = txtComentario.Text;
+            string etiquetaCaja = txtEtiquetaCaja.Text;
             DateTime fechaRetiro = DateTime.ParseExact(txtFecha.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             string tipoInventarioSeleccionado = tipoInventario.SelectedValue;
 
             // Llamar al procedimiento almacenado
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 connection.Open();
 
@@ -63,6 +67,7 @@ namespace webSistemaInventarioBioEyza.Html
                 command.Parameters.AddWithValue("@p_cantidadRetirarUnidades", cantidadUnidadRetirada);
                 command.Parameters.AddWithValue("@p_destinatario", destinatario);
                 command.Parameters.AddWithValue("@p_codigoFactura", codigoFacturaValidacion);
+                command.Parameters.AddWithValue("@p_etiquetaCaja", etiquetaCaja);
                 command.Parameters.AddWithValue("@p_comentario", comentario);
                 command.Parameters.AddWithValue("@p_fecha_salida", fechaRetiro);
                 command.Parameters.AddWithValue("@p_id_usuario", userId);
@@ -85,6 +90,7 @@ namespace webSistemaInventarioBioEyza.Html
                 txtDestinatario.Text = "";
                 txtCodigoFactura.Text = "";
                 txtFecha.Text = "";
+                txtEtiquetaCaja.Text = "";
                 txtComentario.Text = "";
 
                 connection.Close();

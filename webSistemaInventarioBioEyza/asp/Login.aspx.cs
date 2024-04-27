@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using webSistemaInventarioBioEyza.Clases;
+using System.Configuration;
 
 namespace webSistemaInventarioBioEyza.Html
 {
@@ -21,11 +23,11 @@ namespace webSistemaInventarioBioEyza.Html
         {
             string nombre = txtNombre.Text;
             string contraseña = txtContraseña.Text;
-            lblMensaje.Text = "Usuario o contraseña invalida";
+            lblMensaje.Text = "Usuario o contraseña inválida";
 
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 connection.Open();
 
@@ -38,30 +40,29 @@ namespace webSistemaInventarioBioEyza.Html
 
                     if (userId == null)
                     {
-                        
+                        // Usuario no encontrado, manejar el caso según sea necesario
                         return;
                     }
 
                     // Almacenar el ID del usuario en una variable de sesión
                     Session["UserID"] = userId.ToString();
-                
                 }
 
+                // Llamar al procedimiento almacenado "Login"
                 using (MySqlCommand command = new MySqlCommand("Login", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-
                     command.Parameters.AddWithValue("p_usuario", nombre);
                     command.Parameters.AddWithValue("p_pass_login", contraseña);
-
 
                     command.ExecuteNonQuery();
                 }
 
-
+                // Redireccionar al usuario a la página de inicio después de iniciar sesión
                 Response.Redirect("index.aspx");
             }
         }
+
     }
 }

@@ -5,6 +5,7 @@ using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using webSistemaInventarioBioEyza.Clases;
 using TextBox = System.Web.UI.WebControls.TextBox;
 
 namespace webSistemaInventarioBioEyza.Html
@@ -34,28 +35,25 @@ namespace webSistemaInventarioBioEyza.Html
                 // Definir la consulta SQL para eliminar el registro según el tipo de inventario
                 string deleteQuery = string.Empty;
 
-                if (tipoInventarioSeleccionado == "Lote")
-                {
-                    deleteQuery = "DELETE FROM cajaLote WHERE id_usuario = @UserID AND id = @RecordID";
-                }
-                else if (tipoInventarioSeleccionado == "Bioeyza")
+                if (tipoInventarioSeleccionado == "Bioeyza")
                 {
                     deleteQuery = "DELETE FROM cajaInventario WHERE id_usuario = @UserID AND id = @RecordID";
                 }
+                else if (tipoInventarioSeleccionado == "Lote")
+                {
+                    deleteQuery = "DELETE FROM cajaLote WHERE id_usuario = @UserID AND id = @RecordID";
+                }
                 else
                 {
-                    // Manejar el caso en que el tipo de inventario seleccionado no sea reconocido
-                    // Por ejemplo, puedes mostrar un mensaje de error o redirigir al usuario a una página adecuada
-                    // Por ejemplo:
                     Response.Write("Tipo de inventario seleccionado no reconocido.");
                     return;
                 }
 
                 // Obtener la cadena de conexión desde el archivo Web.config
-                string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
+                string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
                 // Crear una conexión a la base de datos MySQL
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
                 {
                     // Abrir la conexión
                     connection.Open();
@@ -73,17 +71,13 @@ namespace webSistemaInventarioBioEyza.Html
                         // Verificar si se eliminó algún registro
                         if (rowsAffected > 0)
                         {
-                            // La eliminación se realizó con éxito
-                            // Puedes mostrar un mensaje o realizar alguna otra acción si lo deseas
-                            // Por ejemplo:
+
                             ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "setTimeout(function(){ alert('Registro eliminado correctamente'); window.location.href = 'mostrarInventario.aspx'; }, 1500);", true);
 
                         }
                         else
                         {
-                            // No se eliminó ningún registro
-                            // Esto podría ser útil para manejar casos donde el registro ya fue eliminado por otro usuario, etc.
-                            // Por ejemplo:
+
                             Response.Write("No se encontró ningún registro para eliminar con el ID proporcionado.");
                         }
                     }
@@ -91,10 +85,7 @@ namespace webSistemaInventarioBioEyza.Html
             }
             else
             {
-                // El ID del usuario o el tipo de inventario seleccionado no están disponibles en la sesión
-                // Debes manejar este caso según tus requisitos específicos
-                // Por ejemplo, puedes redirigir al usuario a una página de inicio de sesión o mostrar un mensaje de error
-                // Por ejemplo:
+
                 Response.Redirect("mostrarInventario.aspx");
             }
 
@@ -150,10 +141,10 @@ namespace webSistemaInventarioBioEyza.Html
             string tipoInventarioSeleccionado = tipoInventario.SelectedValue;
 
             // Obtener la cadena de conexión desde el archivo Web.config
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
             // Crear una conexión a la base de datos MySQL
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 // Abrir la conexión
                 connection.Open();
@@ -227,8 +218,8 @@ namespace webSistemaInventarioBioEyza.Html
         protected void BuscarCajaEspecifica(string tipoInventarioItem, string nombreCajaItem)
         {
             // Establece la conexión a la base de datos
-            string connectionString = "Server=localhost;Database=SistemaInventario;Uid=root;Pwd=admin54321;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
+            using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))
             {
                 // Abre la conexión
                 connection.Open();
