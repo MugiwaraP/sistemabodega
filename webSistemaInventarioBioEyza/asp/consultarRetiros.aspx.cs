@@ -147,7 +147,7 @@ namespace webSistemaInventarioBioEyza.asp
         {
             DateTime fechaInicio = DateTime.ParseExact(txtFechaInicio.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime fechFinal = DateTime.ParseExact(txtFechaFinal.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            // Obtener la cadena de conexión desde el archivo Web.config
+            // Obtener la cadena de conexión desde la clase ConectionHelper
             string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
             // Crear una conexión a la base de datos MySQL
             using (MySqlConnection connection = new MySqlConnection(connectionStringHosting))

@@ -32,7 +32,7 @@ namespace webSistemaInventarioBioEyza.Html
 
             if (!string.IsNullOrEmpty(userId) && !string.IsNullOrEmpty(tipoInventarioSeleccionado))
             {
-                // Definir la consulta SQL para eliminar el registro según el tipo de inventario
+                // consulta SQL para eliminar el registro según el tipo de inventario
                 string deleteQuery = string.Empty;
 
                 if (tipoInventarioSeleccionado == "Bioeyza")
@@ -49,7 +49,7 @@ namespace webSistemaInventarioBioEyza.Html
                     return;
                 }
 
-                // Obtener la cadena de conexión desde el archivo Web.config
+                // Obtener la cadena de conexión desde la clase ConectionHelper
                 string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
                 // Crear una conexión a la base de datos MySQL
@@ -140,7 +140,7 @@ namespace webSistemaInventarioBioEyza.Html
             // Obtener el tipo de inventario seleccionado en el DropDownList
             string tipoInventarioSeleccionado = tipoInventario.SelectedValue;
 
-            // Obtener la cadena de conexión desde el archivo Web.config
+            // Obtener la cadena de conexión desde la clase ConectionHelper
             string connectionStringHosting = ConnectionHelper.GetHostingConnectionString();
 
             // Crear una conexión a la base de datos MySQL
@@ -235,7 +235,7 @@ namespace webSistemaInventarioBioEyza.Html
                 // Ejecuta el comando y obtén los resultados
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    // Enlaza los resultados al GridView
+                    // Enlazo los resultados con al GridView
                     GridView1.DataSource = reader;
                     GridView1.DataBind();
                 }

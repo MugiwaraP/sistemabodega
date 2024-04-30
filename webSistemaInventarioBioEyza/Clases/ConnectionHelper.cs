@@ -7,7 +7,7 @@ namespace webSistemaInventarioBioEyza.Clases
 {
     public static class ConnectionHelper
     {
-
+        /*Conexion base de datos AWS*/
         public static string GetHostingConnectionString()
         {
             string server = "sistemabodega.cduwow2qm1nr.us-east-1.rds.amazonaws.com";
